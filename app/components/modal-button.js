@@ -1,1 +1,0 @@
-export { default } from 'e-a11y-modal/components/modal-button';
