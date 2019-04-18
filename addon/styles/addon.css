@@ -3,6 +3,9 @@
 *:before {
   box-sizing:border-box;
 }
+*:focus {
+  border: 3px dotted #e04e39;
+}
 
 [data-modal-open][hidden] {
   display: none;

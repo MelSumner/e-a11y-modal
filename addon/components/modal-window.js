@@ -16,10 +16,10 @@ export default Component.extend({
   //   this.set('lastFocus', document.activeElement);
   // },
 
-  // willDestroyElement() {
-  //   super.willDestroyElement(...arguments);
-  //   this.lastFocus.focus();
-  // }
+  willDestroyElement() {
+    super.willDestroyElement(...arguments);
+    this.lastFocus.focus();
+  },
   actions: {
     triggerModal() {
       this.set('isModalVisible', true);
