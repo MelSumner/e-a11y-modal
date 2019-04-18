@@ -1,0 +1,101 @@
+*,
+*:after,
+*:before {
+  box-sizing:border-box;
+}
+
+[data-modal-open][hidden] {
+  display: none;
+}
+
+body.modal-open {
+  overflow: hidden; 
+}
+
+.js [data-modal],
+.a11y-modal {
+  -webkit-overflow-scrolling: touch;
+  background: #ffffff;
+  border: 2px solid #000000;
+  bottom: 0;
+  box-shadow: 0 0 1000px 630px rgba(0,0,0,.7);
+  left: 0;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  opacity: 1;
+  overflow: auto;
+  padding: 1.25em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateY(0%);
+  visibility: visible;
+  width: 600px;
+  z-index: 10;
+}
+
+@media screen and (min-height: 440px) and (min-width: 500px) {
+  .js [data-modal],
+  .a11y-modal {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  }
+}
+
+.js [data-modal][hidden]
+.a11y-modal[hidden] {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15vh);
+  visibility: hidden;
+}
+
+.a11y-modal__btn-close {
+  border: none;
+}
+
+.a11y-modal__btn-icon {
+  background: none;
+  border: none;
+  height: 2em;
+  padding: 0;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 2em;
+}
+
+.a11y-modal__btn-icon:hover [data-modal-x],
+.a11y-modal__btn-icon:focus [data-modal-x] {
+  color: #e04e39;
+}
+
+[data-modal-x] {
+  border-right: 2px solid;
+  bottom: 0;
+  display: block;
+  height: 2em;
+  left: 0;
+  margin: auto;
+  pointer-events: none;
+  position: relative;
+  right: 0;
+  top: 0;
+  transform: rotate(45deg);
+  width: 2px;
+}
+
+[data-modal-x]:after {
+  border-right: 2px solid;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: rotate(-90deg);
+  width: 100%;
+}

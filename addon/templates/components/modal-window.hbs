@@ -1,0 +1,16 @@
+<button {{action "triggerModal"}}>{{this.buttonText}}</button>
+{{#if isModalVisible}}
+  <div class="a11y-modal" data-modal tabindex="-1"  ...attributes aria-labelledby="modal-heading" role="dialog">
+    <div data-modal-document="" role="document">
+      <h2 class="a11y-modal__heading" id="modal-heading">
+        {{this.modalHeadingText}}
+      </h2>
+      <div>
+        {{yield}}
+      </div>
+      <button type="button" class="a11y-modal__btn-close a11y-modal__btn-icon js-first-focus js-last-focus" aria-label="Close" {{action "closeModal"}}>
+        <span data-modal-x="">X</span>
+      </button>
+    </div>
+  </div>
+{{/if}}
