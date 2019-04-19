@@ -11,27 +11,21 @@ export default Component.extend({
   actions: {
     triggerModal() {      
       this.set('isModalVisible', true);
+      // add the modal-open class to the body element
+      document.body.classList.add("modal-open");
+
       schedule('afterRender', this, function() {
-        let modalWindow = this.element.querySelector(".a11y-modal");
-        
-        // set tabindex to 0 on the modal
-        modalWindow.setAttribute("tabindex", "0");
-        
+        let modalWindow = this.element.querySelector(".a11y-modal");        
         // focus on the modal
-        modalWindow.focus();
-        
-        // add the modal-open class to the body element
-        document.body.classList.add("modal-open");
+        modalWindow.focus();  
       })
     },
     closeModal() {
       this.set('isModalVisible', false);
-      
       // return the focus to the trigger button
       this.element.querySelector(".a11y-modal__button-trigger").focus();
-      
       // add the modal-open class to the body element
-        document.body.classList.remove("modal-open");
+      document.body.classList.remove("modal-open");
       
     }
   }
