@@ -23,7 +23,7 @@ This modal was intentionally designed to be specifically opinionated, and as a r
 
 The following should be kept in mind when considering use of this addon:
 
-* application content must be inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles).
+* application content must be inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles)
 * only use one modal per page (this is intended for simple uses cases).
 * it uses the `inert` browser polyfill (see https://github.com/WICG/inert).
 * the modal has a z-index of 10 (which quite frankly, should be more than enough).
