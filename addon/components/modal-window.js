@@ -6,10 +6,6 @@ export default Component.extend({
   layout,
   isModalVisible: false,
 
-  // TODO When the ESC key is pressed, the closeModal action should be triggered.
-
-
-
   actions: {
     triggerModal() {      
       this.set('isModalVisible', true);
@@ -40,8 +36,8 @@ export default Component.extend({
         let headerElement = document.querySelector("header");
         let mainElement = document.querySelector("main");
         let footerElement = document.querySelector("footer");
+        
         // TODO add the rest of the landmark regions 
-
         headerElement.inert = true;
         mainElement.inert = true;
         footerElement.inert = true;
@@ -50,7 +46,12 @@ export default Component.extend({
 
     },
     closeModal() {
+      this.closeModal();
+    }
+  },
 
+  // this a function so I could call the same function with the `keyDown` event 
+  closeModal() {
       // remove the modal
       this.set('isModalVisible', false);
 
@@ -73,6 +74,15 @@ export default Component.extend({
       headerElement.inert = false;
       mainElement.inert = false;
       footerElement.inert = false;
+  },
+
+  // close the modal when the ESC key is pressed AND the modal is open; otherwise do nothing.
+  keyDown: function(event) {
+    if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
+      console.log('ESC key was pressed');
+      this.closeModal();
+    } else {
+      return;
     }
   }
 });
