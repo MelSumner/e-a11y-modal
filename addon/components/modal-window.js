@@ -79,7 +79,6 @@ export default Component.extend({
   // close the modal when the ESC key is pressed AND the modal is open; otherwise do nothing.
   keyDown: function(event) {
     if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
-      console.log('ESC key was pressed');
       this.closeModal();
     } else {
       return;
