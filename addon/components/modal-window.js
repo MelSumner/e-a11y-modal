@@ -21,25 +21,26 @@ export default Component.extend({
         let modalWindow = this.element.querySelector(".a11y-modal");  
         modalWindow.focus();
 
-        //put aria-hidden on the trigger button
+        // put aria-hidden on the trigger button
         let buttonTrigger = this.element.querySelector(".a11y-modal__button-trigger");
         buttonTrigger.setAttribute("aria-hidden", "true");
         buttonTrigger.setAttribute("tabindex", "-1");
 
-        //to trap the focus in the modal, set all other elements outside of the modalWindow to inert (via the wicg-inert polyfill)
+        // trap the focus in the modal
         
-        /* To understand the approach used here, please familiarize yourself with the wicg-inert polyfill: https://github.com/WICG/inert or else you may be ill-equipped to discuss the subject.
+        /* 
+        To understand the approach used here, please familiarize yourself with the wicg-inert polyfill: https://github.com/WICG/inert or else you may be ill-equipped to discuss the subject.
         
         There are two items that we are considering with this approach: performance and technical accuracy from an accessibility standpoint.
         
         If we make it an app constraint to have the content inside of landmark regions, but then render the modal itself outside of these regions (in between the main element and the footer element), then we can set .inert on only those elements- which should give us better performance than searching for every other element except the modal. Depending on our tests, we _might_ have some a11y test failures since technically all content should be inside landmark elements. However, considering that the modal isn't rendered to the dom until we need it, AND considering the potential performance tradeoffs (finding and setting inert on only three elements vs an unknown number of elements), it seems like a reasonable approach.
         */
         
+        // TODO consider abstraction with a CONST that identifies top-level landmark regions
         let headerElement = document.querySelector("header");
         let mainElement = document.querySelector("main");
         let footerElement = document.querySelector("footer");
         // TODO add the rest of the landmark regions 
-        // TODO ensure that they are not the child element of another landmark region (they don't need inert applied in those cases, since the parent element will have them)
 
         headerElement.inert = true;
         mainElement.inert = true;
