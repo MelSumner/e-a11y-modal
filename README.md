@@ -11,6 +11,8 @@ Please read _all_ of the usage details before considering this modal for your ap
 
 ## Installation
 
+Once this addon is published:
+
 ```
 ember install e-a11y-modal
 ```
