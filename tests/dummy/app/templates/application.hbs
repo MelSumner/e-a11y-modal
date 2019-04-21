@@ -1,13 +1,28 @@
 <header>
-<h1 id="title">e-a11y-modal</h1>
+  <h1 id="title">e-a11y-modal</h1>
 </header>
+
 <main>
+  <button>Trigger Modal</button>
+  {{outlet}}
+</main>
+
 <ModalWindow 
   @modalHeadingText="Modal Title" 
-  @buttonText="Trigger Button">
+  @buttonText="I am the modal trigger button">
   <p>A Modal Window a user could put whatever they wanted.</p>
+  <form>
+    <div class="form-group">
+      <label for="input-name">Your Name</label>
+      <input id="input-name" type="text"> 
+    </div>
+    <button type="submit">Submit</button>
+    <button type="reset">Clear</button>
+  </form>
 </ModalWindow>
 
-
-{{outlet}}
-</main>
+<footer>
+  <p>
+    <small>A footer. &copy; lolno. <a href="https://github.com/melsumner/e-a11y-modal">GitHub repo</a> available.</small>
+  </p>
+</footer>
