@@ -19,7 +19,7 @@ ember install e-a11y-modal
 
 ## Design
 
-This modal was intentionally designed to be specifically opinionated, and as a result may not fit into every application.  It is intended to be used with application development that follows the best practices of web design and development, and considers accessibility and the user experience from a practical perspective. 
+This modal was intentionally designed, and as a result may not fit into an existing application, if it has not previously considered accessibility and other best practices for front-end web design and development.  It is intended to be used with application development that follows the best practices of web design and development, and considers accessibility and the user experience from a practical perspective.
 
 The following should be kept in mind when considering use of this addon:
 
