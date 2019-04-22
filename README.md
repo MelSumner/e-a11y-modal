@@ -38,7 +38,7 @@ Addons & libraries used in making this addon:
 ## Usage
 
 * authors must only use one modal per page.
-* authors must put all application content inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles) - **except** for the modal (see examples below). When the modal is triggered, the landmarks will be marked with `inert` and `aria-hidden="true"` will be applied, which will effectively trap the focus inside of the modal while it is open. For the user with a screen reader, **either** the modal will exist, **or** the rest of the page will exist, but never both at the same time.
+* authors must put all application content inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles) - **except** for the modal (see examples below).
 * authors must trigger the modal with a `<button>` element.
 * authors must provide a value for `modalHeadingText`.
 
@@ -53,6 +53,8 @@ Addons & libraries used in making this addon:
 ```  
 
 ### Example: page layout
+
+When the modal is triggered, the landmarks will be marked with `inert` and `aria-hidden="true"` will be applied, which will effectively trap the focus inside of the modal while it is open. For the user with a screen reader, **either** the modal will exist, **or** the rest of the page will exist, but never both at the same time.
 
 ```hbs
 <body>
