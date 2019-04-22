@@ -45,6 +45,32 @@ The following should be kept in mind when considering use of this addon:
 </ModalWindow>
 ```  
 
+When thinking about how it fits into the page, consider this: 
+
+```hbs
+<body>
+  
+  <header>
+    {{!-- header block content here --}}
+  </header>
+  
+  <main>
+    {{!-- main block content here --}}
+  </main>
+  
+  <ModalWindow
+    @modalHeadingText="Modal Title"
+    @buttonText="I am the modal trigger button">
+      {{!-- Any modal content can go in this block --}} 
+  </ModalWindow>
+
+  <footer>
+    {{!-- footer block content here --}}
+  </footer>
+
+</body>    
+```
+
 ## Contributing
 
 Contributions to this addon are welcome. Contributors should consider the design constraints (listed above in "Usage") when submitting a PR for consideration. Please ensure that any PR includes what is being done, tests, and any screenshots that may aid in consideration for inclusion in this addon.
