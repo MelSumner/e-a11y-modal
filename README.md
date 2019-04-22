@@ -41,6 +41,7 @@ The following should be kept in mind when considering use of this addon:
 <ModalWindow
   @modalHeadingText="Modal Title"
   @buttonText="I am the modal trigger button">
+  {{!-- Any modal content can go in this block --}} 
 </ModalWindow>
 ```  
 
