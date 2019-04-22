@@ -23,6 +23,7 @@ export default Component.extend({
 
       // wait until the modal has rendered and then move focus to it
       schedule('afterRender', this, function() {
+        // TODO issue #3
         let modalWindow = this.element.querySelector(".a11y-modal");  
         modalWindow.focus();
 
