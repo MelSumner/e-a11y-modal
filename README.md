@@ -45,7 +45,7 @@ The following should be kept in mind when considering use of this addon:
 </ModalWindow>
 ```  
 
-When thinking about how it fits into the page, consider this: 
+When thinking about how it fits into the page, consider this example: 
 
 ```hbs
 <body>
