@@ -1,6 +1,6 @@
 # Ember A11y Modal
 
-This addon is intended to provide a simple, accessible, button-triggered modal. It uses the `inert` polyfill (see https://github.com/WICG/inert). 
+This addon is intended to provide a simple, accessible, button-triggered modal. It uses the `inert` polyfill (see https://github.com/WICG/inert). (Note: If you are looking for more complexity, please review [ember-modal-dialog](https://github.com/yapplabs/ember-modal-dialog), noting that you may need to add focus trapping for that addon.)
 
 Please read _all_ of the design details before considering this modal for your application.
 
