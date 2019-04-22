@@ -30,10 +30,15 @@ The following should be kept in mind when considering use of this addon:
 * when the modal is open, scrolling of content underneath the modal is prevented.
 * when the modal is open, focus (either by <kbd>TAB</kbd> key or virtual cursor) will not reach the window underneath, but users will still be able to reach the URL bar (users can typically do this anyway by pressing the <kbd>F6</kbd> key)
 
+Addons & libraries used in making this addon:
+
+* @ember/optional-features (to turn off the [wrapping `div`](https://github.com/emberjs/ember-optional-features) in an Ember App)
+* wicg-inert to add the `inert` functionality
+
 ## Usage
 
 * authors must only use one modal per page.
-* authors must put all application content inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles) - except for the modal. When the modal is triggered, the landmarks will be marked with `inert` and `aria-hidden="true"` will be applied, which will effectively trap the focus inside of the modal while it is open.
+* authors must put all application content inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles) - except for the modal. When the modal is triggered, the landmarks will be marked with `inert` and `aria-hidden="true"` will be applied, which will effectively trap the focus inside of the modal while it is open. For the user with a screen reader, **either** the modal will exist, **or** the rest of the page will exist, but never both at the same time.
 * authors must trigger the modal with a `<button>` element.
 * authors must provide a value for `modalHeadingText`.
 
@@ -45,7 +50,7 @@ The following should be kept in mind when considering use of this addon:
 </ModalWindow>
 ```  
 
-When thinking about how it fits into the page, consider this example: 
+When thinking about how it fits into the page, consider this example:
 
 ```hbs
 <body>
@@ -73,7 +78,7 @@ When thinking about how it fits into the page, consider this example:
 
 ## Contributing
 
-Contributions to this addon are welcome. Contributors should consider the design constraints (listed above in "Usage") when submitting a PR for consideration. Please ensure that any PR includes what is being done, tests, and any screenshots that may aid in consideration for inclusion in this addon.
+Contributions to this addon are welcome. Contributors should consider the design constraints (listed above in "Design" and "Usage") when submitting a PR for consideration. Please ensure that any PR includes what is being done, tests, and any screenshots that may aid in consideration for inclusion in this addon.
 
 ## License
 
