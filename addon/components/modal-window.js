@@ -2,6 +2,15 @@ import Component from '@ember/component';
 import layout from '../templates/components/modal-window';
 import { schedule } from '@ember/runloop';
 
+const LANDMARKS = [
+    'aside',
+    'footer',
+    'form',
+    'header',
+    'main',
+    'nav'
+];
+
 export default Component.extend({
   layout,
   isModalVisible: false,
@@ -32,19 +41,16 @@ export default Component.extend({
         If we make it an app constraint to have the content inside of landmark regions, but then render the modal itself outside of these regions (in between the main element and the footer element), then we can set .inert on only those elements- which should give us better performance than searching for every other element except the modal. Depending on our tests, we _might_ have some a11y test failures since technically all content should be inside landmark elements. However, considering that the modal isn't rendered to the dom until we need it, AND considering the potential performance tradeoffs (finding and setting inert on only three elements vs an unknown number of elements), it seems like a reasonable approach.
         */
         
-        // TODO consider abstraction with a CONST that identifies top-level landmark regions
-        let headerElement = document.querySelector("header");
-        let mainElement = document.querySelector("main");
-        let footerElement = document.querySelector("footer");
-        
-        // TODO add the rest of the landmark regions 
-        headerElement.inert = true;
-        mainElement.inert = true;
-        footerElement.inert = true;
-        
-      });
+        let landmarkElements = document.querySelectorAll(LANDMARKS);
 
+        landmarkElements.forEach(function(landmarkElement) {
+          if (landmarkElement.parentElement === document.body) {
+            landmarkElement.inert = true;
+          }  
+        });
+      });
     },
+
     closeModal() {
       this.closeModal();
     }
@@ -67,13 +73,13 @@ export default Component.extend({
       document.body.classList.remove("modal-open");
       
       //turn inert off
-      let headerElement = document.querySelector("header");
-      let mainElement = document.querySelector("main");
-      let footerElement = document.querySelector("footer");
+      let landmarkElements = document.querySelectorAll(LANDMARKS);
 
-      headerElement.inert = false;
-      mainElement.inert = false;
-      footerElement.inert = false;
+        landmarkElements.forEach(function(landmarkElement) {
+          if (landmarkElement.parentElement === document.body) {
+            landmarkElement.inert = false;
+          }  
+        });
   },
 
   // close the modal when the ESC key is pressed AND the modal is open; otherwise do nothing.
