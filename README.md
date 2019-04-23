@@ -34,12 +34,13 @@ Addons & libraries used in making this addon:
 
 * @ember/optional-features (to turn off the [wrapping `div`](https://github.com/emberjs/ember-optional-features) in an Ember App)
 * wicg-inert to add the `inert` functionality
+* ember-wormhole (this will be used until Ember provides this functionality in a native way)
 
 ## Usage
 
 * authors must only use one modal per page.
-* authors must put all application content inside a landmark (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles) - **except** for the modal (see examples below).
-* authors must trigger the modal with a `<button>` element.
+* authors must put all application content inside a landmark element (see https://www.w3.org/WAI/PF/aria/roles#landmark_roles).
+* authors must provide a value for `buttonText`.
 * authors must provide a value for `modalHeadingText`.
 
 ### Example: standard usage
@@ -61,17 +62,16 @@ When the modal is triggered, the landmarks will be marked with `inert` and `aria
   
   <header>
     {{!-- header block content here --}}
+      <ModalWindow
+        @modalHeadingText="Modal Title"
+        @buttonText="Login">
+          {{!-- Any modal content can go in this block --}}
+      </ModalWindow>
   </header>
   
   <main>
     {{!-- main block content here --}}
   </main>
-  
-  <ModalWindow
-    @modalHeadingText="Modal Title"
-    @buttonText="I am the modal trigger button">
-      {{!-- Any modal content can go in this block --}} 
-  </ModalWindow>
 
   <footer>
     {{!-- footer block content here --}}

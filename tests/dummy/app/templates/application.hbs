@@ -1,32 +1,26 @@
 <header>
   <h1 id="title">e-a11y-modal</h1>
+  <ModalWindow 
+    @modalHeadingText="Modal Title" 
+    @buttonText="Login">
+    <form>
+      <fieldset>
+        <legend>Login</legend>
+        <div class="form-group">
+          <label for="input-name">Username</label>
+          <input id="input-name" type="text"> 
+        </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
+      </fieldset>
+    </form>
+  </ModalWindow>
 </header>
 
 <main>
   {{outlet}}
 </main>
 
-<ModalWindow 
-  @modalHeadingText="Modal Title" 
-  @buttonText="I am the modal trigger button">
-  <p>A modal dialog in which an author could put whatever content they wished.</p>
-  <form>
-    <fieldset>
-      <legend>A Form: Tell Me Your Name</legend>
-      <div class="form-group">
-        <label for="input-name">Your Name</label>
-        <input id="input-name" type="text"> 
-      </div>
-      <button type="submit">Submit</button>
-      <button type="reset">Clear</button>
-    </fieldset>
-  </form>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci augue, condimentum in ante vitae, tristique condimentum neque. Nam blandit ligula magna, non rutrum ligula tincidunt eget. Cras tincidunt blandit est, eget molestie augue ullamcorper pretium. Vestibulum mattis est non sapien lacinia tincidunt. Duis nec leo risus. Curabitur non est fermentum, vehicula purus et, faucibus nisi. Maecenas aliquam risus non gravida luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin congue neque vel urna aliquam fermentum vitae id ligula. Sed pellentesque massa a pulvinar maximus.</p>
-  <p>Phasellus dignissim augue urna, sit amet convallis nisl consequat sit amet. Mauris ac sodales dui, nec lacinia diam. Aliquam et rhoncus tellus. Integer eget orci hendrerit, fermentum lacus id, efficitur metus. Aliquam placerat sapien quis nisl sollicitudin, vel consectetur justo interdum. Morbi mauris purus, pharetra sed urna eget, fermentum efficitur nunc. Suspendisse aliquam, urna vitae sollicitudin tempor, ligula sem dapibus sem, pharetra viverra sem neque a mi. Etiam congue posuere enim ac pulvinar. Aenean a tortor vel quam cursus rutrum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi at sem vel arcu vulputate ultrices. Etiam scelerisque magna urna, eu ornare velit varius at. Ut gravida mi sit amet eros malesuada porttitor. Integer ut quam ac enim iaculis imperdiet. Etiam dapibus quam vitae sodales rutrum. Donec et faucibus ante.</p>
-  <p>Integer orci magna, egestas eu vehicula a, tincidunt pellentesque lectus. Nullam venenatis dapibus felis in imperdiet. Proin at lectus a eros venenatis ultrices ac nec dolor. Morbi gravida ante eu ipsum suscipit, non feugiat nunc imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque imperdiet, nulla eget scelerisque faucibus, nisi orci pellentesque nulla, et imperdiet nulla metus ut orci. Curabitur at porttitor nibh, rhoncus convallis libero. Ut dictum, orci nec euismod dapibus, risus odio imperdiet tortor, nec luctus lacus orci nec risus. Etiam eleifend orci in lacus bibendum efficitur. Morbi placerat urna et lorem convallis, et tincidunt erat hendrerit. Fusce et pulvinar magna. Donec blandit purus dui, sodales facilisis ex laoreet non. Nulla eget sem porta, tempor nisi ut, fringilla nulla. Vestibulum eleifend imperdiet justo ac lobortis. Suspendisse pretium felis vel turpis tempus condimentum eget vitae ipsum. Etiam pharetra libero quis malesuada volutpat.</p>
-  <p>Praesent mollis sapien lacinia, viverra tellus quis, aliquam odio. Aliquam vel condimentum massa. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu nisi mi. Etiam quis ante venenatis, tincidunt turpis eget, imperdiet turpis. Maecenas est quam, ultricies eu dictum pharetra, egestas molestie turpis. Integer pulvinar arcu sed nisi laoreet, nec euismod tortor bibendum. Suspendisse erat ante, vulputate in erat quis, faucibus tristique risus. Vestibulum mattis sem nibh, sit amet vulputate magna gravida et. Nulla mollis elit eget nisi tempus, eu laoreet orci sollicitudin. Nunc eleifend tincidunt tellus, ut pulvinar tellus suscipit in. Mauris sed augue in nunc hendrerit consequat. Mauris sagittis ante eget augue aliquam convallis. Sed pulvinar ullamcorper venenatis. Nam id tortor quis ex malesuada volutpat placerat quis diam.</p>
-  <p>Ut placerat quis quam sit amet viverra. Aenean at eros eu dui blandit mattis. Fusce faucibus erat in laoreet dignissim. Maecenas et congue ex. In rutrum nisl in sollicitudin varius. Morbi viverra finibus nisi et pellentesque. Proin nec pellentesque nisi, a sollicitudin purus. Vivamus quis orci non ipsum lobortis luctus quis a sapien. Proin purus augue, porta et dapibus id, ullamcorper at sapien. Suspendisse ac felis quis ex suscipit sollicitudin et non nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur quis laoreet magna. Phasellus quis tellus porta, posuere elit suscipit, eleifend lacus. Duis ut nibh aliquam, elementum erat id, sodales est. Aliquam ornare tempus purus id gravida.</p>
-</ModalWindow>
 
 <footer>
   <p>

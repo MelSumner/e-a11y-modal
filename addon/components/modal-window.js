@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/modal-window';
 import { schedule } from '@ember/runloop';
+import { computed } from '@ember/object';
 
 const LANDMARKS = [
     'aside',
@@ -15,6 +16,10 @@ export default Component.extend({
   layout,
   isModalVisible: false,
 
+  bodyElement: computed(function() {
+    return document.body;
+  }),
+
   actions: {
     triggerModal() {      
       this.set('isModalVisible', true);
@@ -27,10 +32,14 @@ export default Component.extend({
         let modalWindow = this.element.querySelector(".a11y-modal");  
         modalWindow.focus();
 
-        // put aria-hidden on the trigger button
-        let buttonTrigger = this.element.querySelector(".a11y-modal__button-trigger");
-        buttonTrigger.setAttribute("aria-hidden", "true");
-        buttonTrigger.setAttribute("tabindex", "-1");
+        modalWindow.addEventListener('keydown', (event) => {
+          console.log('mels thing');
+          if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
+            this.closeModal();
+          } else {
+            return;
+          }
+        });
 
         // trap the focus in the modal
         
@@ -61,14 +70,6 @@ export default Component.extend({
   closeModal() {
       // remove the modal
       this.set('isModalVisible', false);
-
-      //remove aria-hidden and tabindex from the trigger button
-      let buttonTrigger = this.element.querySelector(".a11y-modal__button-trigger");
-      buttonTrigger.removeAttribute("aria-hidden");
-      buttonTrigger.removeAttribute("tabindex");
-
-      // return the focus to the trigger button
-      buttonTrigger.focus();
       
       // add the modal-open class to the body element
       document.body.classList.remove("modal-open");
@@ -76,19 +77,26 @@ export default Component.extend({
       //turn inert off
       let landmarkElements = document.querySelectorAll(LANDMARKS);
 
-        landmarkElements.forEach(function(landmarkElement) {
-          if (landmarkElement.parentElement === document.body) {
-            landmarkElement.inert = false;
-          }  
-        });
+      landmarkElements.forEach(function(landmarkElement) {
+        if (landmarkElement.parentElement === document.body) {
+          landmarkElement.inert = false;
+        }  
+      });
+
+      schedule('afterRender', this, function() {
+        let buttonTrigger = this.element.querySelector(".a11y-modal__button-trigger");
+        // return the focus to the trigger button
+        buttonTrigger.focus();
+      });
   },
 
   // close the modal when the ESC key is pressed AND the modal is open; otherwise do nothing.
-  keyDown: function(event) {
-    if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
-      this.closeModal();
-    } else {
-      return;
-    }
-  }
+  // keyDown: function(event) {
+  //   console.log('ehloooo!')
+  //   if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
+  //     this.closeModal();
+  //   } else {
+  //     return;
+  //   }
+  // }
 });

@@ -1,16 +1,18 @@
 <button {{action "triggerModal"}} class="a11y-modal__button-trigger" ...attributes>{{this.buttonText}}</button>
 {{#if isModalVisible}}
-  <div class="a11y-modal" data-modal tabindex="0"  ...attributes aria-labelledby="modal-heading" role="dialog">
-    <div data-modal-document="" role="document">
-      <h2 class="a11y-modal__heading" id="modal-heading">
-        {{this.modalHeadingText}}
-      </h2>
-      <button type="button" class="a11y-modal__btn-close a11y-modal__btn-icon js-first-focus js-last-focus" aria-label="Close" {{action "closeModal"}}>
-        <span data-modal-x=""></span>
-      </button>
-      <div>
-        {{yield}}
+  <EmberWormhole @destinationElement={{bodyElement}}>
+    <div class="a11y-modal" data-modal tabindex="0"  ...attributes aria-labelledby="modal-heading" role="dialog">
+      <div data-modal-document="" role="document">
+        <h2 class="a11y-modal__heading" id="modal-heading">
+          {{this.modalHeadingText}}
+        </h2>
+        <button type="button" class="a11y-modal__btn-close a11y-modal__btn-icon js-first-focus js-last-focus" aria-label="Close" {{action "closeModal"}}>
+          <span data-modal-x=""></span>
+        </button>
+        <div>
+          {{yield}}
+        </div>
       </div>
     </div>
-  </div>
+  </EmberWormhole>
 {{/if}}
