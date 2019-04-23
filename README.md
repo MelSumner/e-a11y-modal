@@ -49,7 +49,7 @@ Addons & libraries used in making this addon:
 <ModalWindow
   @modalHeadingText="Modal Title"
   @buttonText="I am the modal trigger button">
-  {{!-- Any modal content can go in this block --}} 
+  {{!-- Any modal content can go in this block --}}
 </ModalWindow>
 ```  
 

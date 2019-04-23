@@ -89,14 +89,4 @@ export default Component.extend({
         buttonTrigger.focus();
       });
   },
-
-  // close the modal when the ESC key is pressed AND the modal is open; otherwise do nothing.
-  // keyDown: function(event) {
-  //   console.log('ehloooo!')
-  //   if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
-  //     this.closeModal();
-  //   } else {
-  //     return;
-  //   }
-  // }
 });
