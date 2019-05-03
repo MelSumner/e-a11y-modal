@@ -4,6 +4,8 @@ _Author's note: This modal is likely different from other modal components that 
 
 This addon is intended to provide a simple, accessible, button-triggered modal. It uses the `inert` polyfill (see https://github.com/WICG/inert). (Note: If you are looking for more complexity, please review [ember-modal-dialog](https://github.com/yapplabs/ember-modal-dialog), noting that you may need to add focus trapping for that addon.)
 
+**For the user with a screen reader, either the modal will exist, or the rest of the page will exist, but never both at the same time.**
+
 Please read _all_ of the design details before considering this modal for your application.
 
 ## Compatibility
