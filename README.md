@@ -1,7 +1,5 @@
 # Ember A11y Modal
 
-_Author's note: This modal is likely different from other modal components that you have encountered before (or even written yourself). It might feel strange and unfamiliar and you might be thinking that something has been done incorrectly (both of these things might be accurate). However, the focus of this modal (no pun intended) component addon is to provide a more accurate way to make an accessible modal._
-
 This addon is intended to provide a simple, accessible, button-triggered modal. **For the user with a screen reader, either the modal will exist, or the rest of the page will exist, but never both at the same time.**
 
 Please read _all_ of the design details before considering this modal for your application.
