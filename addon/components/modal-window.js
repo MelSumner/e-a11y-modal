@@ -33,7 +33,6 @@ export default Component.extend({
         modalWindow.focus();
 
         modalWindow.addEventListener('keydown', (event) => {
-          console.log('mels thing');
           if (event.keyCode === 27 && document.body.classList.contains("modal-open")) {
             this.closeModal();
           } else {
